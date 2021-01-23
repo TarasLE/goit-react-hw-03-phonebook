@@ -9,18 +9,38 @@ export default class App extends Component {
         contacts: [],
         filter: '',
     }
-
-    refreshContactsList = (state) => {
-        this.setState({
-            contacts: state,
-        })
+    deleteContact = (contactId) => {
+        this.setState((prevState) => ({
+            contacts: prevState.contacts.filter(
+                (contact) => contact.id != contactId
+            ),
+        }))
     }
 
-    handleContact = (event) => {
-        const { name, value } = event.currentTarget
-        this.setState({
-            [name]: value,
-        })
+    addContact = (contact) => {
+        this.setState((prevState) => ({
+            contacts: [contact, ...prevState.contacts],
+        }))
+    }
+    componentDidUpdate(prevProps, prevState) {
+        console.log('PREVSTATE')
+        console.log(prevState)
+        console.log('THISSTATE')
+        console.log(this.state)
+        if (this.state.contacts !== prevState.contacts) {
+            localStorage.setItem(
+                'contacts',
+                JSON.stringify(this.state.contacts)
+            )
+        }
+    }
+
+    componentDidMount() {
+        const localContacts = localStorage.getItem('contacts')
+        const parsedLocalContacts = JSON.parse(localContacts)
+        if (parsedLocalContacts) {
+            this.setState({ contacts: parsedLocalContacts })
+        }
     }
 
     contactFilter = (event) => {
@@ -39,13 +59,12 @@ export default class App extends Component {
                 <ContactForm
                     addContact={this.addContact}
                     contacts={this.state.contacts}
-                    refreshState={this.refreshContactsList}
                 />
                 <h1>Contacts</h1>
                 <Filter value={this.state.filter} filter={this.contactFilter} />
                 <ContactList
                     contacts={filteredElements}
-                    refreshState={this.refreshContactsList}
+                    deleteContact={this.deleteContact}
                 />
             </div>
         )

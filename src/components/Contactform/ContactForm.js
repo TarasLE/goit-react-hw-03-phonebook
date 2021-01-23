@@ -21,7 +21,7 @@ export default class ContactForm extends Component {
         })
     }
 
-    addContact = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault()
         if (this.checkContact()) {
             return
@@ -31,8 +31,7 @@ export default class ContactForm extends Component {
                 name: this.state.name,
                 number: this.state.number,
             }
-            this.props.contacts.unshift(contact)
-            this.props.refreshState(this.props.contacts)
+            this.props.addContact(contact)
             this.clearInput()
         }
     }
@@ -88,7 +87,7 @@ export default class ContactForm extends Component {
                 </form>
                 <button
                     type="button"
-                    onClick={this.addContact}
+                    onClick={this.handleSubmit}
                     className={styles.FormBtn}
                 >
                     Add contact
