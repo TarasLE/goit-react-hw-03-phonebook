@@ -36,10 +36,10 @@
 .FormBtn {
     margin-top: 10px;
     height: 50px;
-    background-color: rgba(47, 224, 243, 0.94);
+    background-color: rgba(155, 132, 4, 0.8);
 }
 
 .FormBtn:hover {
     color: #ffffff;
-    background-color: rgb(4, 155, 72);
+    background-color: rgb(43, 39, 39);
 }

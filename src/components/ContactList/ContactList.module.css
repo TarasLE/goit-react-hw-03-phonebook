@@ -14,7 +14,6 @@
     display: flex;
     justify-content: space-between;
     border: black solid 1px;
-    background-color: rgba(84, 228, 103, 0.2);
 }
 
 ul {
@@ -30,7 +29,7 @@ li {
 }
 
 .DeleteBtn {
-    background-color: rgba(47, 224, 243, 0.94);
+    background-color: rgba(155, 132, 4, 0.8);
     margin-right: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
