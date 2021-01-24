@@ -23,10 +23,6 @@ export default class App extends Component {
         }))
     }
     componentDidUpdate(prevProps, prevState) {
-        console.log('PREVSTATE')
-        console.log(prevState)
-        console.log('THISSTATE')
-        console.log(this.state)
         if (this.state.contacts !== prevState.contacts) {
             localStorage.setItem(
                 'contacts',
