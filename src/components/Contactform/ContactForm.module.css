@@ -1,5 +1,5 @@
 .Container {
-    position: relative;
+    /* position: relative; */
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -12,8 +12,8 @@
 .Notification {
     padding: 30px;
     position: absolute;
-    top: 0%;
-    left: -16%;
+    top: 100px;
+    left: calc(50% - 230px);
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -36,7 +36,7 @@
 .FormBtn {
     margin-top: 10px;
     height: 50px;
-    background-color: rgba(155, 132, 4, 0.8);
+    background-color: rgba(232, 204, 45, 0.8);
 }
 
 .FormBtn:hover {

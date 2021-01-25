@@ -1,6 +1,6 @@
 .Container {
     padding: 10px;
-    background-color: rgba(84, 228, 103, 0.6);
+    background-color: rgba(84, 228, 103, 0.5);
     display: flex;
     align-items: center;
     flex-direction: column;
